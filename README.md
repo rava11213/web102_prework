@@ -22,20 +22,15 @@ The following **optional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented features:
-
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
-<!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
-<!-- Recommended tools:
-[Kap](https://getkap.co/) for macOS
-[ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
+https://drive.google.com/file/d/13h1qTEsb9DcNqAh-ERaGuq7piqXUcZcy/view?usp=sharing
 
 ## Notes
 
 Describe any challenges encountered while building the app.
 
+One of the main challenges was dynamically filtering and updating the list of games without reloading the page. Initially, I forgot to clear out the previously displayed game elements before adding new ones, which caused the games to keep stacking up each time a filter button was clicked. I resolved this by implementing a deleteChildElements function to clear the container before adding new content.
+
+Another challenge was working with ES6 features like the spread operator and destructuring. I had to carefully test and debug to ensure the top-funded and runner-up games were being accurately identified and displayed. Finally, integrating and testing event listeners for all buttons took some trial and error, especially making sure each one responded correctly and updated the DOM without breaking the layout.
 ## License
 
     Copyright [Tong Wu]
