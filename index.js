@@ -99,6 +99,8 @@ function filterUnfundedOnly() {
     deleteChildElements(gamesContainer);
 
     const unfundedGames = GAMES_JSON.filter(game => game.pledged < game.goal);
+    console.log("Unfunded games count:", unfundedGames.length); 
+
 
     addGamesToPage(unfundedGames);
 
@@ -109,6 +111,7 @@ function filterFundedOnly() {
     deleteChildElements(gamesContainer);
 
     const fundedGames = GAMES_JSON.filter(game => game.pledged >= game.goal);
+    console.log("Funded games count:", fundedGames.length);
 
     addGamesToPage(fundedGames);
 
@@ -164,7 +167,7 @@ descriptionContainer.appendChild(descriptionElement);
 const firstGameContainer = document.getElementById("first-game");
 const secondGameContainer = document.getElementById("second-game");
 // create a new element to hold the name of the top pledge game, then append it to the correct element
-const sortedGames = [...GAMES_JSON].sort((item1, item2) => {
+const [topGame, runnerUpGame] = [...GAMES_JSON].sort((item1, item2) => {
     return item2.pledged - item1.pledged;
 });
 const topGameElement = document.createElement("p");
@@ -174,3 +177,6 @@ firstGameContainer.appendChild(topGameElement);
 const runnerUpElement = document.createElement("p");
 runnerUpElement.innerText = `${runnerUpGame.name}`;
 secondGameContainer.appendChild(runnerUpElement);
+
+window.filterUnfundedOnly = filterUnfundedOnly;
+window.filterFundedOnly=filterFundedOnly;
